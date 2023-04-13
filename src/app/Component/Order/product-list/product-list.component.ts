@@ -16,10 +16,10 @@ export class ProductListComponent {
   constructor(){
     this.products = [
     {id: 1,categoryId: 1,name:"Lenovo 011",price:7987,quantity:6,imageUrl:"https://picsum.photos/50/50"},
-    {id: 2,categoryId: 2,name:"Dell 12",price:2778,quantity:10,imageUrl:"https://picsum.photos/50/50"},
+    {id: 2,categoryId: 2,name:"Dell 12",price:2778,quantity:2,imageUrl:"https://picsum.photos/50/50"},
     {id: 3,categoryId: 3,name:"Samsung 101",price:2334,quantity:0,imageUrl:"https://picsum.photos/50/50"},
-    {id: 4,categoryId: 4,name:"Huawei 29",price:2245,quantity:31,imageUrl:"https://picsum.photos/50/50"}];
-  
+    {id: 4,categoryId: 4,name:"Huawei 29",price:2245,quantity:1,imageUrl:"https://picsum.photos/50/50"}];
+
     this.categories = [
       {id:1,name:"Lenovo"},
       {id:2,name:"Dell"},
@@ -41,5 +41,9 @@ export class ProductListComponent {
 
   ChaneCat(){
     this.categroyId = 1;
+  }
+
+  prdTrackByFn(index:number,prd:IProduct){
+    return prd.id;
   }
 }
