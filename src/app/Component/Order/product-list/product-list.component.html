@@ -10,13 +10,17 @@ Categories
   Category number : {{categroyId}}
 </div>
 <button class="btn btn-primary" (click)="ChaneCat()">Change category</button>
+<br>
+<div>Today date : {{Orderdate | date:'medium'}}</div>
 <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Image</th>
       <th scope="col">Name</th>
-      <th scope="col">Price</th>
+      <th scope="col">Price in USD</th>
+      <th scope="col">Price in EGP</th>
+
       <th scope="col">Quantity</th>
       <th scope="col">Count</th>
       <th scope="col">Buy</th>
@@ -46,9 +50,15 @@ Categories
         <!-- safe navigation operator -->
       <!-- <th>{{item?.id}}</th> -->
       <th>{{i+1}}</th>
-      <td><img src="{{item.imageUrl}}" alt=""></td>
-      <td>{{item.name}}</td>
-      <td>{{item.price}}</td>
+      <td><img LightBox src="{{item.imageUrl}}" alt=""></td>
+      <!-- <td LightBox defaultColor="red">{{item.name}}</td> -->
+      <td LightBox="yellow">{{item.name}}</td>
+
+      <!-- <td>{{item.price | currency: 'EUR'}}</td> -->
+      <td>{{item.price | currency: 'EUR'}}</td>
+      <td>{{item.price | USDtoEGP:  10 | currency :'EGP' : 'code'}}</td>
+
+
       <td>
         <!-- <div *ngIf="item.quantity!=0; else outOfStock">{{item.quantity}}</div>
         <ng-template #outOfStock>Out of Stock</ng-template> -->
