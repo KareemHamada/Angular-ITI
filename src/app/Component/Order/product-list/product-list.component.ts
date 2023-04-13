@@ -11,8 +11,8 @@ import { ICategory } from 'src/app/Models/icategory';
 export class ProductListComponent {
   Orderdate:Date;
   products:IProduct[];
+  productsList:IProduct[] = [];
   orderTotalPrice:number = 0;
-  categories:ICategory[];
   categroyId:number=0;
   constructor(){
     this.products = [
@@ -21,13 +21,9 @@ export class ProductListComponent {
     {id: 3,categoryId: 3,name:"Samsung 101",price:2334.4345,quantity:0,imageUrl:"https://picsum.photos/50/50"},
     {id: 4,categoryId: 4,name:"Huawei 29",price:2245,quantity:1,imageUrl:"https://picsum.photos/50/50"}];
 
-    this.categories = [
-      {id:1,name:"Lenovo"},
-      {id:2,name:"Dell"},
-      {id:3,name:"Samsung"},
-      {id:4,name:"Huawei"},
-    ];
+
     this.Orderdate = new Date();
+    this.productsList = this.products;
   }
 
   MinusQty(price:number,count:any){
@@ -47,5 +43,9 @@ export class ProductListComponent {
 
   prdTrackByFn(index:number,prd:IProduct){
     return prd.id;
+  }
+
+  filerProductsByCatId(){
+   this.productsList = this.products.filter(prd => prd.categoryId == this.categroyId);
   }
 }

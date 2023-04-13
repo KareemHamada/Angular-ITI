@@ -1,17 +1,18 @@
-<div class="dropdown">
+<!-- <div class="dropdown">
   <label class="form-label">
-Categories
+    Categories
   </label>
-  <select class="form-control" [(ngModel)]="categroyId">
+  <select class="form-control" [(ngModel)]="categroyId" (change)="filerProductsByCatId()">
     <option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
   </select>
-</div>
-<div class="text-primary">
+</div> -->
+
+<!-- <div class="text-primary">
   Category number : {{categroyId}}
 </div>
 <button class="btn btn-primary" (click)="ChaneCat()">Change category</button>
 <br>
-<div>Today date : {{Orderdate | date:'medium'}}</div>
+<div>Today date : {{Orderdate | date:'medium'}}</div> -->
 <table class="table">
   <thead>
     <tr>
@@ -45,12 +46,12 @@ Categories
 
       <!-- <tr *ngIf="item.quantity != 0"  [style.background-color]="item.quantity > 0 ? 'red' : 'blue'"> -->
 
-     <tr *ngFor="let item of products;index as i">
+     <tr *ngFor="let item of productsList;index as i">
 
         <!-- safe navigation operator -->
       <!-- <th>{{item?.id}}</th> -->
       <th>{{i+1}}</th>
-      <td><img LightBox src="{{item.imageUrl}}" alt=""></td>
+      <td><img LightBox="red" defaultColor="gray" src="{{item.imageUrl}}" alt=""></td>
       <!-- <td LightBox defaultColor="red">{{item.name}}</td> -->
       <td LightBox="yellow">{{item.name}}</td>
 
